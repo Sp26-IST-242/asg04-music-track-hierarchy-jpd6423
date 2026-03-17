@@ -8,3 +8,33 @@ Key concepts to implement:
   • A *derived* property (debut_year) that computes its value from stored data
     rather than keeping a second field in sync.
 """
+class Album:
+    def __init__(
+            self,
+            title: str,
+            active: bool,
+            years: list[int]):
+        if not years:
+            raise ValueError(f"Years list is empty for {title}")
+        self._title = title
+        self._active = active
+        self._years = list(years)
+
+    @property
+    def title(self) -> str:
+        return self._title
+    
+    @property 
+    def active(self) -> str:
+        return self._active
+    
+    @property
+    def years(self) -> str:
+        return list(self._years)
+    
+    @property
+    def debut_year(self) -> int:
+        return self._years[0]
+    
+    def __str__(self) -> str:
+        return f'{self._title} active = {self._active}, debut year: {self._years[0]}'
