@@ -37,6 +37,10 @@ class Podcast(MusicTrack):
       super().__init__(artist, album, duration_seconds)
       self._is_explicit = is_explicit
 
+   @property
+   def is_explicit(self):
+      return self._is_explicit
+   
    def play_time_formatted(self) -> str:
       hours = int(self._duration_seconds // 3600)
       minutes = int((self._duration_seconds % 3600) // 60)
