@@ -60,7 +60,11 @@ class MusicTrack(ABC):
     # comparable
 
     def __eq__(self, other):
+        if not isinstance(other, MusicTrack):
+            return NotImplemented
         return self.release_year == other.release_year
     
     def __lt__(self, other):
+        if not isinstance(other, MusicTrack):
+            return NotImplemented
         return self.release_year < other.release_year
