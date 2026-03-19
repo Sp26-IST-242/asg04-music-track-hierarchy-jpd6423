@@ -19,6 +19,7 @@ Design decisions to implement:
 """
 
 from abc import ABC, abstractmethod
+from functools import total_ordering
 
 # Abstract class
 class MusicTrack(ABC):
@@ -54,3 +55,11 @@ class MusicTrack(ABC):
     # concrete
     def total_play_time(self, num_plays: int) -> float:
         return self._duration_seconds * num_plays
+    
+    # comparable
+
+    def __eq__(self, other):
+        return self.release_year == other.release_year
+    
+    def __lt__(self, other):
+        return self.release_year < other.release_year
