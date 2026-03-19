@@ -22,6 +22,7 @@ from abc import ABC, abstractmethod
 from functools import total_ordering
 
 # Abstract class
+@total_ordering
 class MusicTrack(ABC):
     def __init__(
             self,
